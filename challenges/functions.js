@@ -39,7 +39,23 @@ console.log(consume("Mary","Poppins", greeting)); // Hello Mary Poppins, nice to
 
 // Explain in your own words why `nestedfunction()` can access the variable `internal`.
 
-// Explanation:
+/* Explanation: so the reason `nestedfunction()` is able to access the `internal` variable is because variables trickle down into
+ nested functions by way of parent=>child inheritance this does not work the opposite way. */
+
+
+const external = "I'm outside the function";
+
+function myFunction() {
+  console.log(external);
+  const internal = "Hello! I'm inside myFunction!";
+
+  function nestedFunction() {
+    console.log(internal);
+  };
+  nestedFunction();
+}
+myFunction();
+
 
 
 const external = "I'm outside the function";
